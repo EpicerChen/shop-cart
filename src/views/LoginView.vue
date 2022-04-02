@@ -18,7 +18,6 @@ export default defineComponent({
     },
     methods: {
         login() {
-            console.log(321)
             this.store.dispatch("postLogin", { username: "string", password: "string" })
         }
     },
