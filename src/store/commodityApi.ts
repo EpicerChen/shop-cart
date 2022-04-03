@@ -5,15 +5,15 @@ import { RootState } from '.';
 
 
 //TODO TS 寫 store 的方法
-type commodity = {
+export type Commodity = {
     name: string,
     price: number,
-    image: string[],
+    images: string[],
     comment: string
 }
 
 export interface CommodityState {
-    commodities: commodity[]
+    commodities: Commodity[]
 }
 
 export const commodityApi: Module<CommodityState, RootState> = {
@@ -24,7 +24,7 @@ export const commodityApi: Module<CommodityState, RootState> = {
         getCommodities: ({ commodities }) => commodities
     },
     mutations: {
-        UPDATE_COMMODITIES(state, payload: commodity[]) {
+        UPDATE_COMMODITIES(state, payload: Commodity[]) {
             state.commodities = payload
         }
     },

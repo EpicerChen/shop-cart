@@ -13,3 +13,4 @@ export default createStore({
     commodity: commodityApi
   }
 })
+

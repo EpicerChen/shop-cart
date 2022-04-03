@@ -1,22 +1,18 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <div v-for="item in getCommodities" :key="item.name">
-      <img style="width: 40%;" :src="`data:image/png;base64,${item.images[0]}`" />
-      <div>{{ item.name }}</div>
-      <div>{{ item.price }}</div>
-      <div>{{ item.comment }}</div>
-    </div>
+    <CommodityItemVue v-for="item in getCommodities" :key="item.name" :commodity="item"/>   
     <button @click="updateCommodities">test</button>
   </div>
 </template>
 <script lang="ts">
+import CommodityItemVue from "@/components/CommodityItem.vue";
 import { defineComponent } from "vue";
 import { mapGetters, useStore } from "vuex";
 export default defineComponent({
-  name: 'HomeView',
+  name: 'CartView',
   components: {
-
+     CommodityItemVue
   },
   setup() {
     const store = useStore()  //TODO 去看一下書是怎麼解決這個問題
