@@ -20,7 +20,8 @@ export default defineComponent({
   },
   methods: {
     updateCommodities() {
-      // this.$store.dispatch("getCommodities") //TODO 書中是使用 $store ，是因為它是 js 語言，ts 在官方中有說明，只能透過 setup 中 的 const store = useStore() 中去使用
+      // this.$store.dispatch("getCommodities") 
+      //TODO 書中是使用 $store ，是因為它是 js 語言，ts 在官方中有說明，只能透過 setup 中 的 const store = useStore() 中去使用
       this.store.dispatch("getCommodities")
     }
   },
