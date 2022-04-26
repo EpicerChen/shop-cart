@@ -24,6 +24,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/bill',
     name: 'bill',
     component: () => import(/* webpackChunkName: "bill" */ '../views/BillView.vue')
+  },
+  {
+    path: '/references/CallGlobalComponent',
+    name: 'referencesCallGlobalComponent',
+    component: () => import(/* webpackChunkName: "bill" */ '../views/references/CallGlobalComponent.vue')
   }
 ]
 
