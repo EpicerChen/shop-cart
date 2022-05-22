@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/cart">Cart</router-link> |
     <router-link to="/login">Login</router-link>|
+    <router-link to="/references/ComparisonApi">references ComparisonApi</router-link>|
     <router-link to="/bill">Bill</router-link>
   </nav>
   <router-view/>

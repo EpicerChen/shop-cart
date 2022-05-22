@@ -1,24 +1,38 @@
 <template lang="">
     <div>
-        {{count}}
+        <div>
+            count: {{count}}
+        </div>
+         <div>
+            plusOne: {{plusOne}}
+        </div>
+        <div>
+            obj: {{obj}}
+        </div>
+        <button @click="changeObj">Change obj</button>
+        <div>
+            foo: {{foo}}
+        </div>
     </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref, Ref, reactive, onBeforeUnmount, computed } from "vue";
-
+import { defineComponent, ref, Ref, reactive, computed, onMounted } from "vue";
+import lib from "@/lib/comparison-api-lib"
 export default defineComponent({
     setup() {
-        const constVar: string = "this is const";
-        const obj = reactive({})
+        // const constVar: string = "this is const";
+        const foo = lib.foo;
+        const obj = reactive({ value: "" })
         let refExample: Ref<string> = ref("this is ref");
 
-        onBeforeUnmount(() => {
-
+        onMounted(() => {
+            console.log("onBrforeUnmount")
         })
 
-        const count:Ref<number> = ref(0)
-
-        
+        const changeObj = () => {
+            obj.value = "change"
+        }
+        const count: Ref<number> = ref(0)
         const plusOne = computed({
             get: () => count.value + 1,
             set: (newVal) => {
@@ -26,9 +40,7 @@ export default defineComponent({
             },
         });
 
-        //TODO computed
-
-        return { obj, constVar,count }
+        return { obj, plusOne, count, changeObj, foo }
     }
 })
 </script>

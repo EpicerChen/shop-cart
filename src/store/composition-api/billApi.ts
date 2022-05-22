@@ -4,16 +4,25 @@ import axios from 'axios';
 
 //TODO 這裡用 Composition API 寫
 
-const Bill = reactive({ total: 0 })
-
-const getBill = async () => {
-    await axios.get("http://")
-        .then((response: AxiosResponse) => {
-            Bill.total = response.data
-        })
+const state = reactive({ total: 0 })
+const mutations = {
+    updateTotal: (payload: number) => {
+        state.total = payload
+    }
+}
+const action = {
+    getBill: async () => {
+        await axios.get("http://")
+            .then((response: AxiosResponse) => {
+                state.total = response.data
+            })
+    },
+    addTotal: () => {
+        mutations.updateTotal(state.total + 1);
+    }
 }
 
 export default {
-    state: readonly(Bill),
-    getBill
+    state: readonly(state),
+    action
 }

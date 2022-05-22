@@ -9,10 +9,10 @@ import billApi from "@/store/composition-api/billApi";
 export default defineComponent({
   name: "BillView",
   setup() {
-    const getBill = billApi.getBill
+    const action = billApi.action
     const state = billApi.state
     return {
-      getBill,
+      action,
       state
     }
   }
